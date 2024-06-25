@@ -9,6 +9,7 @@ This script simplifies the process of converting a Machine/VM linux into a Proxm
 
 - This script must be run on the Proxmox host machine.
 - Ensure that the 'pct' command is available on your Proxmox host machine.
+- Ensure that 'pvenv' and 'jq' are available (for next available vmid calculation)
 
 ## Installation
 
