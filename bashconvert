@@ -168,7 +168,13 @@ mk_template() {
 ssh -p "$port" "root@$target" \
   "$(typeset -f collectFS); collectFS" | gzip > "/tmp/$name.tar.gz"
 }
+confirm() {
+  local prompt=$1
+read -p $prompt resp && \
+  [[ $resp == [yY] || \
+  $resp == [yY][eE][sS] ]] || exit 1
 
+}
 # Create a Proxmox container using the collected file system data and provided parameters
 pct create "$id" "/tmp/$name.tar.gz" \
   -description LXC \
